@@ -26,16 +26,16 @@ class BookShelves extends Component {
                 <div className="list-books-content">
 
                     <Shelf title='Currently reading'
-                        books={this.state.books.filter(element => element.shelf === 'currentlyReading')}
+                        books={this.props.books.filter(element => element.shelf === 'currentlyReading')}
 
                         updateChange={(book, shelf) => { this.manageChange(book, shelf) }}
                     />
                     <Shelf title='Read'
-                        books={this.state.books.filter(element => element.shelf === 'read')}
+                        books={this.props.books.filter(element => element.shelf === 'read')}
                         updateChange={(book, shelf) => { this.manageChange(book, shelf) }}
                     />
                     <Shelf title='Wants to read'
-                        books={this.state.books.filter(element => element.shelf === 'wantToRead')}
+                        books={this.props.books.filter(element => element.shelf === 'wantToRead')}
                         updateChange={(book, shelf) => { this.manageChange(book, shelf) }}
                     />
 

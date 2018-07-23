@@ -12,7 +12,7 @@ class Book extends Component {
             bookCover = "url('http://via.placeholder.com/170*122')"
         }
         return (
-            <li>
+            
             <div className="book">
               <div className="book-top">
                 <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${bookCover})`}}></div>
@@ -33,7 +33,7 @@ class Book extends Component {
               <div className="book-authors">{this.props.book.authors}
               </div>
             </div>
-          </li>
+          
         );
     }
 }

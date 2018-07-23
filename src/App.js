@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+// import { Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import * as BooksAPI from './BooksAPI';
 import './App.css';
 import BookShelves from './BookShelves';
@@ -32,7 +33,7 @@ class BooksApp extends Component {
 
   render() {
     return (
-
+<Router>
       <div className="app">
         <Route exact path='/' render={({ history }) => (
           <BookShelves books={this.state.books} updateChange={(book, shelf) => { this.manageChange(book, shelf) }}
@@ -48,8 +49,9 @@ class BooksApp extends Component {
         />
 
 
-        )}
+        
       </div>
+      </Router>
 
     );
   }
