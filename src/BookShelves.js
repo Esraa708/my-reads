@@ -1,22 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import * as BooksAPI from './BooksAPI'
 import Shelf from './Shelf';
 class BookShelves extends Component {
-    state =
-        {
-            books: []
-        }
-    manageChange = (book, shelf) => {
-        BooksAPI.update(book, shelf)
-            .then(() => {
-                book.shelf = shelf;
-                this.setState(state => ({
-                    books: state.books.filter(item => item.id !== book.id).concat([book])
-                }))
-            })
+    receive = (book, shelve) => {
+        this.props.updateChange(book, shelve);
     }
-
     render() {
         return (
             <div className="list-books">
@@ -28,15 +16,15 @@ class BookShelves extends Component {
                     <Shelf title='Currently reading'
                         books={this.props.books.filter(element => element.shelf === 'currentlyReading')}
 
-                        updateChange={(book, shelf) => { this.manageChange(book, shelf) }}
+                        updateChange={(book, shelf) => { this.receive(book, shelf) }}
                     />
                     <Shelf title='Read'
                         books={this.props.books.filter(element => element.shelf === 'read')}
-                        updateChange={(book, shelf) => { this.manageChange(book, shelf) }}
+                        updateChange={(book, shelf) => { this.receive(book, shelf) }}
                     />
                     <Shelf title='Wants to read'
                         books={this.props.books.filter(element => element.shelf === 'wantToRead')}
-                        updateChange={(book, shelf) => { this.manageChange(book, shelf) }}
+                        updateChange={(book, shelf) => { this.receive(book, shelf) }}
                     />
 
                 </div>
