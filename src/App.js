@@ -8,9 +8,7 @@ import Search from './Search';
 
 class BooksApp extends Component {
   state = {
-
     books: []
-
   }
   componentDidMount = () => {
     BooksAPI.getAll().then((myBooks) => {
